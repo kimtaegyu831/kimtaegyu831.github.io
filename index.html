@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>김태규 | Data Analyst</title>
+  <meta name="description" content="산업시스템공학 전공 데이터 분석가 지망생 김태규의 퍼스널 브랜딩 웹사이트" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0f172a;            /* slate-900 */
+      --muted:#475569;         /* slate-600 */
+      --muted2:#94a3b8;        /* slate-400 */
+      --line:#e2e8f0;          /* slate-200 */
+      --card:#ffffff;
+      --blue:#2563eb;          /* blue-600 */
+      --blue2:#1d4ed8;         /* blue-700 */
+      --blueSoft:#eff6ff;      /* blue-50 */
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      --shadow2: 0 12px 28px rgba(37, 99, 235, .12);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Pretendard, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(255,255,255,.72);
+      border-bottom:1px solid rgba(226,232,240,.65);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:-.3px}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: radial-gradient(120% 120% at 30% 20%, #60a5fa 0%, #2563eb 45%, #1e40af 100%);
+      box-shadow: var(--shadow2);
+      display:grid; place-items:center;
+      color:#fff;
+      font-weight:900;
+    }
+    .nav-links{display:flex; gap:18px; align-items:center; color:var(--muted); font-weight:600}
+    .nav-links a{padding:10px 12px; border-radius:12px; transition:.15s}
+    .nav-links a:hover{background:var(--blueSoft); color:var(--blue2)}
+    .nav-cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:700;
+      color:var(--fg);
+      box-shadow: 0 1px 0 rgba(15,23,42,.04);
+      transition: transform .08s ease, box-shadow .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow); border-color:#cbd5e1}
+    .btn.primary{background:linear-gradient(180deg, #3b82f6 0%, #2563eb 100%); border-color:#2563eb; color:#fff; box-shadow:var(--shadow2)}
+    .btn.primary:hover{border-color:#1d4ed8}
+
+    /* Hero */
+    .hero{
+      padding:56px 0 24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-40px -40px auto -40px;
+      height:420px;
+      background:
+        radial-gradient(900px 420px at 15% 0%, rgba(37,99,235,.18) 0%, rgba(37,99,235,0) 60%),
+        radial-gradient(700px 360px at 85% 20%, rgba(96,165,250,.20) 0%, rgba(96,165,250,0) 60%),
+        radial-gradient(500px 320px at 55% 80%, rgba(30,64,175,.10) 0%, rgba(30,64,175,0) 60%);
+      pointer-events:none;
+    }
+    .hero-grid{display:grid; grid-template-columns: 1.15fr .85fr; gap:26px; align-items:stretch}
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(37,99,235,.08);
+      border:1px solid rgba(37,99,235,.18);
+      color:var(--blue2);
+      font-weight:800;
+      font-size:13px;
+    }
+    .badge .dot{width:8px; height:8px; border-radius:99px; background:var(--blue)}
+    h1{margin:14px 0 12px; font-size:44px; line-height:1.08; letter-spacing:-1.2px}
+    .lead{margin:0; color:var(--muted); font-weight:600; font-size:16px}
+    .hero-actions{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+    .hero-cards{display:grid; gap:12px}
+
+    /* Cards */
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: 0 1px 0 rgba(15,23,42,.03);
+      padding:16px;
+    }
+    .card.soft{
+      background: linear-gradient(180deg, rgba(239,246,255,.9) 0%, rgba(255,255,255,.9) 70%);
+      border-color: rgba(37,99,235,.16);
+    }
+    .kpi{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .kpi .item{padding:14px; border-radius:16px; border:1px solid rgba(226,232,240,.9); background:#fff}
+    .kpi .label{color:var(--muted2); font-weight:700; font-size:12px}
+    .kpi .value{margin-top:6px; font-weight:900; font-size:18px; letter-spacing:-.4px}
+
+    /* Sections */
+    section{padding:44px 0}
+    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:16px}
+    .section-title{font-size:26px; letter-spacing:-.6px; margin:0}
+    .section-desc{margin:0; color:var(--muted); font-weight:600}
+
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    .grid-2{display:grid; grid-template-columns:repeat(2, 1fr); gap:14px}
+
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:700;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Timeline */
+    .timeline{display:grid; gap:12px}
+    .tl-item{display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:start}
+    .tl-year{font-weight:900; color:var(--blue2)}
+    .tl-title{margin:0; font-weight:900; letter-spacing:-.3px}
+    .tl-body{margin:6px 0 0; color:var(--muted); font-weight:600}
+
+    /* Mini chart */
+    .chart{
+      width:100%;
+      border-radius:16px;
+      border:1px solid rgba(226,232,240,.9);
+      background: #fff;
+      overflow:hidden;
+    }
+    .chart-header{display:flex; justify-content:space-between; align-items:center; padding:12px 12px 8px}
+    .chart-title{font-weight:900; letter-spacing:-.3px}
+    .chart-sub{color:var(--muted2); font-weight:700; font-size:12px}
+    .chart svg{display:block; width:100%; height:auto}
+
+    /* Footer */
+    footer{
+      margin-top:24px;
+      background:#f1f5f9; /* bright gray */
+      border-top:1px solid #e2e8f0;
+    }
+    .footer-inner{padding:34px 0}
+    .footer-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start}
+    .contact{
+      display:grid; gap:10px;
+      padding:16px;
+      border-radius:var(--radius);
+      border:1px solid #e2e8f0;
+      background:rgba(255,255,255,.75);
+    }
+    .contact a{color:var(--blue2); font-weight:900}
+    .fine{color:#64748b; font-weight:600; font-size:12px; margin:10px 0 0}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr;}
+      h1{font-size:38px}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .tl-item{grid-template-columns: 90px 1fr}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="홈">
+        <div class="logo">K</div>
+        <div>
+          <div style="font-size:14px; color:var(--muted); font-weight:800; line-height:1">Personal Brand</div>
+          <div style="font-size:16px; font-weight:900; line-height:1.2">김태규</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="섹션 이동">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn" href="#contact" aria-label="연락하기">연락하기</a>
+        <a class="btn primary" href="#projects" aria-label="프로젝트 보기">프로젝트 보기</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="badge"><span class="dot"></span> Data Analyst · Industrial Systems Engineering</div>
+            <h1>데이터로 문제를 정의하고<br/>실행 가능한 해답을 만듭니다.</h1>
+            <p class="lead">
+              경상국립대 산업시스템공학 전공(20학번) · 현재 4학년 재학 중.<br/>
+              긍정적인 태도로 팀과 함께 빠르게 실험하고, 근거 기반으로 의사결정을 돕는 분석가를 지향합니다.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">Contact</a>
+              <a class="btn" href="#about">About me</a>
+              <a class="btn" href="#projects">Key work</a>
+            </div>
+
+            <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">#멀티태스크러닝</span>
+              <span class="pill">#헬스케어데이터</span>
+              <span class="pill">#프로덕트지향</span>
+              <span class="pill">#긍정적커뮤니케이션</span>
+            </div>
+          </div>
+
+          <div class="hero-cards">
+            <div class="card soft">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:12px">
+                <div>
+                  <div style="color:var(--muted2); font-weight:800; font-size:12px">Snapshot</div>
+                  <div style="font-weight:900; font-size:18px; letter-spacing:-.4px">Profile Highlights</div>
+                </div>
+                <div class="badge" style="margin:0; background:rgba(37,99,235,.10)">Live · 2026</div>
+              </div>
+              <div class="kpi" style="margin-top:12px">
+                <div class="item">
+                  <div class="label">전공</div>
+                  <div class="value">산업시스템공학</div>
+                </div>
+                <div class="item">
+                  <div class="label">관심 분야</div>
+                  <div class="value">Healthcare Analytics</div>
+                </div>
+                <div class="item">
+                  <div class="label">강점</div>
+                  <div class="value">실험·개선</div>
+                </div>
+                <div class="item">
+                  <div class="label">지향점</div>
+                  <div class="value">Data-driven</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="chart" aria-label="데이터 분석 느낌의 미니 차트">
+                <div class="chart-header">
+                  <div>
+                    <div class="chart-title">My Workflow</div>
+                    <div class="chart-sub">Collect → Process → Model → Insight</div>
+                  </div>
+                  <div class="badge" style="margin:0">Pipeline</div>
+                </div>
+                <!-- Decorative SVG chart (no external libs) -->
+                <svg viewBox="0 0 520 220" role="img" aria-label="파란색 계열의 라인차트">
+                  <defs>
+                    <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.26" />
+                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="0" width="520" height="220" fill="#ffffff" />
+                  <!-- grid -->
+                  <g opacity="0.4" stroke="#e2e8f0" stroke-width="1">
+                    <line x1="40" y1="30" x2="500" y2="30" />
+                    <line x1="40" y1="75" x2="500" y2="75" />
+                    <line x1="40" y1="120" x2="500" y2="120" />
+                    <line x1="40" y1="165" x2="500" y2="165" />
+                    <line x1="40" y1="210" x2="500" y2="210" />
+                  </g>
+                  <!-- area -->
+                  <path d="M40 190 C90 150, 130 160, 170 120 C210 80, 260 95, 300 70 C340 45, 395 60, 430 40 C460 28, 485 30, 500 26 L500 210 L40 210 Z" fill="url(#g1)" />
+                  <!-- line -->
+                  <path d="M40 190 C90 150, 130 160, 170 120 C210 80, 260 95, 300 70 C340 45, 395 60, 430 40 C460 28, 485 30, 500 26" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" />
+                  <!-- points -->
+                  <g fill="#1d4ed8">
+                    <circle cx="40" cy="190" r="5" />
+                    <circle cx="170" cy="120" r="5" />
+                    <circle cx="300" cy="70" r="5" />
+                    <circle cx="430" cy="40" r="5" />
+                    <circle cx="500" cy="26" r="5" />
+                  </g>
+                  <!-- axes labels -->
+                  <g font-family="Pretendard, system-ui" font-size="12" fill="#94a3b8" font-weight="700">
+                    <text x="40" y="205">Collect</text>
+                    <text x="165" y="205">Process</text>
+                    <text x="300" y="205">Model</text>
+                    <text x="430" y="205">Insight</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">About</h2>
+            <p class="section-desc">나에 대한 핵심 정보를 한눈에</p>
+          </div>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div style="display:flex; align-items:center; gap:10px">
+              <div class="logo" style="width:34px; height:34px; border-radius:12px; font-size:14px">01</div>
+              <div style="font-weight:900; letter-spacing:-.3px">기본 정보</div>
+            </div>
+            <div style="margin-top:12px; display:grid; gap:10px; color:var(--muted); font-weight:650">
+              <div><b style="color:var(--fg)">이름</b> · 김태규</div>
+              <div><b style="color:var(--fg)">전공</b> · 산업시스템공학</div>
+              <div><b style="color:var(--fg)">학적</b> · 경상국립대 20학번, 4학년 재학</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex; align-items:center; gap:10px">
+              <div class="logo" style="width:34px; height:34px; border-radius:12px; font-size:14px">02</div>
+              <div style="font-weight:900; letter-spacing:-.3px">자기소개</div>
+            </div>
+            <p style="margin:12px 0 0; color:var(--muted); font-weight:650">
+              긍정적인 성격을 바탕으로 협업에서 에너지를 만들고, 문제를 작게 쪼개 빠르게 검증하는 방식을 선호합니다.
+              분석 결과를 ‘읽히는’ 형태로 정리해 팀의 실행을 돕는 것을 중요하게 생각합니다.
+            </p>
+          </div>
+
+          <div class="card soft">
+            <div style="display:flex; align-items:center; gap:10px">
+              <div class="logo" style="width:34px; height:34px; border-radius:12px; font-size:14px">03</div>
+              <div style="font-weight:900; letter-spacing:-.3px">Focus</div>
+            </div>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">데이터 전처리</span>
+              <span class="pill">ML 모델링</span>
+              <span class="pill">리포팅/시각화</span>
+              <span class="pill">제품 관점 분석</span>
+            </div>
+            <p style="margin:12px 0 0; color:var(--muted); font-weight:650">
+              특히 헬스케어 도메인에서 예측 모델과 지표 설계에 관심이 많습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Experience</h2>
+            <p class="section-desc">학업·프로젝트 중심 타임라인</p>
+          </div>
+          <span class="badge">Timeline</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div style="font-weight:900; letter-spacing:-.3px">Career / Milestones</div>
+            <div class="timeline" style="margin-top:12px">
+              <div class="tl-item">
+                <div class="tl-year">2020</div>
+                <div>
+                  <p class="tl-title">경상국립대 산업시스템공학부 입학</p>
+                  <p class="tl-body">산업공학 기반 문제해결·통계·최적화를 학습하며 데이터 역량을 확장.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-year">2024~</div>
+                <div>
+                  <p class="tl-title">사용자 맞춤 날씨-헬스 앱 “We” 개발 참여</p>
+                  <p class="tl-body">기상·건강 데이터를 결합해 사용자 행동요령을 제공하는 앱 프로젝트에 참여.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-year">2025~</div>
+                <div>
+                  <p class="tl-title">멀티태스크러닝(HTN/DM/CANCER) 예측 모델 개발</p>
+                  <p class="tl-body">당뇨·고혈압·암 발생 확률을 동시에 예측하는 모델을 설계/학습하며 불균형 데이터 대응과 임계값 튜닝을 실험.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card soft">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px">
+              <div>
+                <div style="font-weight:900; letter-spacing:-.3px">What I value</div>
+                <div style="color:var(--muted); font-weight:650; margin-top:6px">분석을 “결과”가 아니라 “의사결정”에 연결하기</div>
+              </div>
+              <div class="logo" style="width:42px; height:42px; border-radius:16px">✓</div>
+            </div>
+
+            <div style="margin-top:14px" class="grid-2">
+              <div class="card" style="border-radius:16px; padding:14px">
+                <div style="font-weight:900">명확한 문제정의</div>
+                <p style="margin:8px 0 0; color:var(--muted); font-weight:650">지표·가설을 먼저 세우고, 필요한 데이터를 역으로 설계합니다.</p>
+              </div>
+              <div class="card" style="border-radius:16px; padding:14px">
+                <div style="font-weight:900">재현 가능한 실험</div>
+                <p style="margin:8px 0 0; color:var(--muted); font-weight:650">실험 로그/코드/결과를 체계적으로 관리해 비교 가능한 검증을 합니다.</p>
+              </div>
+              <div class="card" style="border-radius:16px; padding:14px">
+                <div style="font-weight:900">협업 중심 전달</div>
+                <p style="margin:8px 0 0; color:var(--muted); font-weight:650">팀이 바로 실행할 수 있게, 핵심만 요약해 커뮤니케이션합니다.</p>
+              </div>
+              <div class="card" style="border-radius:16px; padding:14px">
+                <div style="font-weight:900">지속적 개선</div>
+                <p style="margin:8px 0 0; color:var(--muted); font-weight:650">작게 만들고 빠르게 개선하는 루프를 반복합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-desc">데이터 분석가 관점의 대표 작업</p>
+          </div>
+          <a class="btn primary" href="#contact">Collaborate</a>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="badge" style="margin-bottom:10px">Product · Health</div>
+            <h3 style="margin:0; letter-spacing:-.4px">날씨-헬스 앱 “We”</h3>
+            <p style="margin:10px 0 0; color:var(--muted); font-weight:650">
+              사용자 맞춤형 날씨·건강 지표를 제공하고 행동요령을 안내하는 앱 개발 프로젝트.
+              데이터 기반 UX 개선과 지표 정의에 관심을 두고 참여했습니다.
+            </p>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">지표 설계</span>
+              <span class="pill">API 연동</span>
+              <span class="pill">UX 관점 분석</span>
+            </div>
+          </article>
+
+          <article class="card soft">
+            <div class="badge" style="margin-bottom:10px; background:rgba(37,99,235,.12)">Model · Multi-task</div>
+            <h3 style="margin:0; letter-spacing:-.4px">HTN/DM/CANCER 예측 모델</h3>
+            <p style="margin:10px 0 0; color:var(--muted); font-weight:650">
+              당뇨·고혈압·암 발생 확률을 동시에 예측하는 멀티태스크러닝 모델을 개발.
+              클래스 불균형 대응, 임계값(threshold) 튜닝, 평가지표(F1/Recall) 최적화 등을 실험했습니다.
+            </p>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">MTL</span>
+              <span class="pill">Class imbalance</span>
+              <span class="pill">Threshold tuning</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="badge" style="margin-bottom:10px">Reporting</div>
+            <h3 style="margin:0; letter-spacing:-.4px">분석 결과 전달/정리</h3>
+            <p style="margin:10px 0 0; color:var(--muted); font-weight:650">
+              모델 성능과 인사이트를 이해하기 쉬운 구조로 요약하고,
+              팀이 바로 의사결정에 활용할 수 있도록 리포팅 형태로 정리하는 작업을 중요하게 생각합니다.
+            </p>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">Storytelling</span>
+              <span class="pill">Visualization</span>
+              <span class="pill">Decision support</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-desc">분석 업무에 필요한 기술 스택(원하는 항목으로 수정 가능)</p>
+          </div>
+          <span class="badge">Stack</span>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div style="font-weight:900; letter-spacing:-.3px">Data</div>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">Python</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">NumPy</span>
+              <span class="pill">SQL</span>
+            </div>
+            <p style="margin:12px 0 0; color:var(--muted); font-weight:650">데이터 수집·정제·분석을 위한 기본 도구 중심.</p>
+          </div>
+
+          <div class="card soft">
+            <div style="font-weight:900; letter-spacing:-.3px">Machine Learning</div>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">Scikit-learn</span>
+              <span class="pill">TensorFlow/Keras</span>
+              <span class="pill">MLP</span>
+              <span class="pill">SVM</span>
+              <span class="pill">Logistic Regression</span>
+            </div>
+            <p style="margin:12px 0 0; color:var(--muted); font-weight:650">불균형 데이터/임계값 튜닝 등 실험 기반 개선.</p>
+          </div>
+
+          <div class="card">
+            <div style="font-weight:900; letter-spacing:-.3px">Collaboration</div>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+              <span class="pill">Git/GitHub</span>
+              <span class="pill">Documentation</span>
+              <span class="pill">Presentation</span>
+            </div>
+            <p style="margin:12px 0 0; color:var(--muted); font-weight:650">팀 프로젝트에서 재현성·커뮤니케이션을 중시.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="gap:12px">
+            <div class="logo">K</div>
+            <div>
+              <div style="font-size:14px; color:#475569; font-weight:800; line-height:1">Contact</div>
+              <div style="font-size:20px; font-weight:900; letter-spacing:-.5px; line-height:1.25">김태규와 함께 이야기해요</div>
+            </div>
+          </div>
+          <p style="margin:12px 0 0; color:#475569; font-weight:650">
+            협업/프로젝트/포트폴리오 관련 문의는 아래 연락처로 편하게 연락 주세요.
+          </p>
+          <p class="fine">© <span id="year"></span> TaeGyu Kim. Built with HTML/CSS.</p>
+        </div>
+
+        <div class="contact" aria-label="연락처">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px">
+            <div style="font-weight:900; letter-spacing:-.3px">Reach me</div>
+            <span class="badge" style="margin:0">Open</span>
+          </div>
+          <div style="display:grid; gap:8px; color:#334155; font-weight:700">
+            <div>
+              <div style="color:#94a3b8; font-weight:800; font-size:12px">Email</div>
+              <a href="mailto:kimteagyu831@gmail.com">kimteagyu831@gmail.com</a>
+            </div>
+            <div>
+              <div style="color:#94a3b8; font-weight:800; font-size:12px">Phone</div>
+              <a href="tel:+821073219692">010-7321-9692</a>
+            </div>
+          </div>
+          <a class="btn primary" href="mailto:kimteagyu831@gmail.com" style="width:100%">메일 보내기</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
